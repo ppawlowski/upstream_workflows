@@ -1,0 +1,23 @@
+name: Main workflow
+on:
+  workflow_run:
+    workflows: 
+      - upstream1
+      - upstream2
+    branches:
+      - main
+    types:
+      - completed
+
+jobs:
+  wait_for_workflows:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ahmadnassri/action-workflow-run-wait@v1
+      - run: echo "all workflows completed"
+
+  build:
+    runs-on: ubuntu-latest
+    needs: wait_for_workflows
+    steps:
+      - run: echo "all workflows completed, now we can build"
