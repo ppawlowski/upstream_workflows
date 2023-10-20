@@ -12,6 +12,9 @@ on:
 jobs:
   wait_for_workflows:
     runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
     steps:
       - uses: ahmadnassri/action-workflow-run-wait@v1
       - run: echo "all workflows completed"
