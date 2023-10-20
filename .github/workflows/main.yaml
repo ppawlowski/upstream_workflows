@@ -17,6 +17,9 @@ jobs:
       contents: read
     steps:
       - uses: ahmadnassri/action-workflow-run-wait@v1
+        with:
+          timeout: 1800000
+          delay: 15000
       - run: echo "all workflows completed"
 
   build:
