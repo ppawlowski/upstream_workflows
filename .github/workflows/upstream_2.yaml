@@ -12,5 +12,3 @@ jobs:
           echo "Doing some tests"
           sleep 120
           echo "Tests done after 120 seconds"
-          echo "I am going to fail now"
-          exit 1
